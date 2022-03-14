@@ -1,0 +1,25 @@
+# ASP.NET
+
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+steps:
+
+- task: kiuwan-baseline-analysis-task@2
+  inputs:
+    kiuwanConnection: 'Kiuwan'
+    projectnameselector: 'kiuwanapp'
+    kiuwanappname: 'Webgoat.NET'
+    includeinsight: true
+    uploadsnippets: true
+    uploadfiles: false
+    skipclones: false
+    overridedotkiuwan: false
+    overrideappmodel: false
+    dbanalysis: false
